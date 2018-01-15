@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8"	/>
+	<title>Tomato-Timer</title>
+	<meta name = "viewport" content = "width=device-width,
+		initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="je=edge" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+	<link rel="stylesheet" type="text/css" href="tomatoTimerStyle.css">
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon-01.png">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya:500" rel="stylesheet">
+</head>
+
+<body>
+
+<main class = "my-flex-container">
+	<div class = "my-flex-block"><img src="img/logo.png" alt="logotype" ></div>
+	<div class = "my-flex-block"><p>Франческо Кирилло в конце 80-х годов прошлого века придумал методику, которая позволяет эффективно 
+		 управлять своим временем.</p>
+		 <p>Франческо считал, что для концентрации на определенной задаче достаточно заниматься только ей в течение 
+		 25 минут — периода, называемого «помидором». Чтобы отвлечься, нужно сделать короткий перерыв (3-5 минут), а 
+		 после 4 рабочих помидоров позволяется отдыхать до 20 минут.</p>
+		 <p>Приложение — это просто удобный таймер в данном случае. Просто задайте количество времени, которое хотите 
+		 потратить на решение вашей текущей задачи.</p>
+	<span class = "my-flex-block">
+		<form>
+			<label for="UserTime">Задайте время: </label>
+			<input id="UserTime" type="time" name="UserTime" value="00:00">
+			<button data-action="start" type="submit"><img src="img/buttonStart.png" alt="buttonStart" > </button>
+		</form>
+	</span>
+</main>
+
+</body>
+</html>
