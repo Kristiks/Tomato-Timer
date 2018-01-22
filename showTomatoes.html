@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8"	/>
+	<title>Tomato-Timer</title>
+	<meta name = "viewport" content = "width=device-width,
+		initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="je=edge" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+	<link rel="stylesheet" type="text/css" href="tomatoTimerStyle.css">
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon-01.png">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya:500" rel="stylesheet">
+</head>
+
+<body>
+
+<main class = "my-flex-container">
+	<div class = "my-flex-block"><img src="img/logo.png" alt="logotype" ></div>
+   	<div class = "my-flex-block">
+        <span class="display"><p>На вашу задачу будет затрачено 
+			<output id ="number-tomatos">0 помидоров</output>, при этом у вас будет
+         	   <output id ="number-short-breaks">0 перерывов</output> по 5 минут и
+                    <output id ="number-breaks">0 перерывов</output> по 20 минут. </p>
+		</span>
+	</div>
+	<span class = "my-flex-block">
+		<form action="index.html">
+			<button id="back" type="submit"><img src="img/buttonBack.png" alt="Вернуться назад"> </button>
+		</form>
+		<form action="startTimer.html">
+			<button id="start" type="submit"><img src="img/buttonStart.png" alt="Начать отсчет"> </button>
+		</form>
+	</span>	
+</main>
+
+<script type="module" src="scripts/CalculateTomatoes.js"></script>
+
+</body>
+</html>
