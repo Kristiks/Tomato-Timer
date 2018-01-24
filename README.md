@@ -4,10 +4,10 @@ Tomato-Timer - a convenient timer for time management
 Запуск
 -----------------------------------
 
-1. Склонируйте репозиторий командой 'git clone'.
+1. Склонируйте репозиторий командой `git clone`.
 2. Убедитесь, что установлен Node.js.
-3. Выполните команду 'npm install'.
-4. Загрузите и запустите simplehttp2server
+3. Выполните команду `npm install`.
+4. Загрузите и запустите simplehttp2server от google.
 5. Откройте index.html.
 
 Описание
