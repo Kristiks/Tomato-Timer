@@ -1,4 +1,4 @@
-Т<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8"	/>
@@ -13,30 +13,60 @@
 </head>
 
 <body class = "my-flex-container">
-		<header>
-			<div class = "my-flex-block"><img src="img/logo.png" alt="logotype" ></div>	
-		</header>
+	<header>
+		<div class = "my-flex-block"><img src="img/logo.png" alt="logotype" ></div>
+	</header>
 
-<main class = "my-flex-container">
-	<div class = "my-flex-block"><p>Франческо Кирилло в конце 80-х годов прошлого века придумал методику, которая позволяет эффективно 
-		 управлять своим временем.</p>
-		 <p>Франческо считал, что для концентрации на определенной задаче достаточно заниматься только ей в течение 
-		 25 минут — периода, называемого «помидором». Чтобы отвлечься, нужно сделать короткий перерыв (3-5 минут), а 
-		 после 4 рабочих помидоров позволяется отдыхать до 20 минут.</p>
-		 <p>Приложение — это просто удобный таймер в данном случае. Просто задайте количество времени, которое хотите 
-		 потратить на решение вашей текущей задачи.</p>
-	</div>
-	<span class = "my-flex-block">
-		<form action="showTomatoes.html">
-			<label for="UserTime">Задайте время: </label>
-			<input id="UserTime" type="time" value="00:00" min="00:25" max="24:00">
-			<span class="validity"></span>
-			<button id="next" type="submit"><img src="img/buttonNext.png" alt="Отправить данные"> </button>
-		</form>
-	</span>
-</main>
 
-<script type="module" src="scripts/saveTime.js"></script>
+	<main>
+		<div class = "my-flex-container" id = "Page1">
+			<div class = "my-flex-block"><p>Франческо Кирилло в конце 80-х годов прошлого века придумал методику, которая позволяет эффективно 
+				управлять своим временем.</p>
+				<p>Франческо считал, что для концентрации на определенной задаче достаточно заниматься только ей в течение 
+				25 минут — периода, называемого «помидором». Чтобы отвлечься, нужно сделать короткий перерыв (3-5 минут), а 
+				после 4 рабочих помидоров позволяется отдыхать до 20 минут.</p>
+				<p>Приложение — это просто удобный таймер в данном случае. Просто задайте количество времени, которое хотите 
+				потратить на решение вашей текущей задачи.</p>
+			</div>
+			<span class = "my-flex-block">
+				<form >
+					<label for="UserTime">Задайте время: </label>
+					<input id="UserTime" type="time" value="00:00" min="00:25" max="24:00">
+					<span class="validity"></span>
+					<button id="next" type="submit"><img src="img/buttonNext.png" alt="Отправить данные"> </button>
+				</form>
+			</span>
+		</div>
+		<div class = "my-flex-container" id = "Page2">
+			<div class = "my-flex-block">
+				<span class="display"><p>На вашу задачу будет затрачено 
+					<output id ="number-tomatos">0 помидоров</output>, при этом у вас будет
+					<output id ="number-short-breaks">0 перерывов</output> по 5 минут и
+					<output id ="number-breaks">0 перерывов</output> по 20 минут. </p>
+				</span>
+			</div>
+			<span class = "my-flex-block">
+				<form>
+					<button id="main" type="submit"><img src="img/buttonBack.png" alt="Вернуться назад"> </button>
+					<button id="start" type="submit"><img src="img/buttonStart.png" alt="Начать отсчет"> </button>
+				</form>	
+			</span>	
+		</div>
+		<div class = "my-flex-container" id = "Page3">
+			<div class = "my-flex-block">
+				<output id="timer">00:00</output>
+			</div>
+			<span class = "my-flex-block">
+				<form>
+					<button id="back" type="submit"><img src="img/buttonBack.png" alt="Вернуться назад"> </button>
+					<button id="exit" type="submit"><img src="img/exitButton.png" alt="Выйти"> </button>
+				</form>	
+			</span>	
+		</div>
+	</main>
+
+<script src="scripts/build/main.js"></script>
+<!--<script src="scripts/Timer/index.ts"></script>-->
 
 </body>
 </html>

@@ -51,17 +51,26 @@ class Converter
 	 * 
 	 * @param {Display} display Экран для отображения результата.
 	 */
-	constructor ( display )
+    private display:Display;
+    private time:number;
+    
+	constructor ( display:Display, time:number )
 	{
 		/** @type {Display} */
         this.display = display;
-        this.converterMinToTomatos();
+        this.time = time;
+        this.converterMinToTomatos(this.time);
     }
 
+    countAll = {
+        t: 0,
+        s: 0,
+        l: 0,
+    }
     /**
     * Миллисекунды в минуты.
     */
-    converterMsToMin( userTime )
+    converterMsToMin( userTime:number )
     {
         return userTime / MS;
     }
@@ -69,10 +78,10 @@ class Converter
     /**
     * Миллисекунды в помидоры.
     */
-    converterMinToTomatos()
+    converterMinToTomatos( time:number )
     {
-        const userTime = localStorage.getItem('startTime');
-        let userTimeAsMin = this.converterMsToMin(userTime);
+        const userTime = time;
+        let userTimeAsMin = this.converterMsToMin(Number(userTime));
         let fullCycleTime = TOMATO_TIME * NUMBER_OF_TOMATOES + SHORT_BREAK * NUMBER_OF_SHORT_BREAKS + LONG_BREAK * NUMBER_OF_LONG_BREAKS;
         let numberOfCycles = Math.floor( userTimeAsMin / fullCycleTime);
         let timeRemainder = userTimeAsMin - numberOfCycles * fullCycleTime;
@@ -115,14 +124,18 @@ class Converter
             this.display.setLongBreaks( userNumberOfLongBreaks );
         }
 
-        localStorage.setItem('userNumberOfTomatoes', userNumberOfTomatoes);
-        localStorage.setItem('userNumberOfShortBreaks', userNumberOfShortBreaks);
-        localStorage.setItem('userNumberOfLongBreaks', userNumberOfLongBreaks);
+        localStorage.setItem('userNumberOfTomatoes', String(userNumberOfTomatoes));
+        localStorage.setItem('userNumberOfShortBreaks', String(userNumberOfShortBreaks));
+        localStorage.setItem('userNumberOfLongBreaks', String(userNumberOfLongBreaks));
+
+        this.countAll.t = userNumberOfTomatoes;
+        this.countAll.s = userNumberOfShortBreaks;
+        this.countAll.l = userNumberOfLongBreaks;
+
+        return this.countAll;
     }
 }
 
 export {
 	Converter as default,
 };
-
-

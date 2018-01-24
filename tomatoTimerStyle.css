@@ -12,7 +12,7 @@ html
     flex-direction: column;
     height: 100vh;
     align-items: center;
-    }
+}
 
 .my-flex-block {
     width: 800px;
@@ -100,15 +100,35 @@ button:focus {
 #start
 {
     align-items: flex-end;
-    margin-top: -140px;
+    margin-top: -75px;
+}
+
+#exit
+{
+    align-items: flex-end;
+    margin-top: -75px;
+}
+
+#main
+{
+    display: initial;
+    margin-top: 70px;    
 }
 
 #timer
-{
-    margin: auto;
-}
-
-#timer
-{
+{   
+    margin-left: 340px;
     font-size: 50px;
+}
+
+#Page1{
+    display: block;
+}
+
+#Page2{
+    display: none;
+}
+
+#Page3{
+    display: none;
 }
