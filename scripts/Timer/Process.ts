@@ -9,7 +9,7 @@ const TOMATO_TIME = 1;
 * Количество минут в маленьком перерыве.
 */
 
-const SHORT_BREAK = 5;
+const SHORT_BREAK = 1;
 
 /**
 * Количество минут в длинном перерыве.
@@ -75,18 +75,18 @@ class Process
     async sequence()
     {
         let totalCount  = USER_NUMBER_OF_TOMATOES + USER_NUMBER_OF_SHORT_BREAKS + USER_NUMBER_OF_LONG_BREAKS;
-        console.log(totalCount);
         let i;
         for(i=0; i < totalCount; i++)
         {   
-            console.log(i);
             if( i % 2 == 0)
             {
                 console.log('Tomato!');
                 USER_NUMBER_OF_TOMATOES--;
                 if(USER_NUMBER_OF_TOMATOES >= 0)
                 {
-                   await this.timer.setMinutes(TOMATO_TIME);    
+                    let res = document.getElementById( 'message' ) as HTMLOutputElement;
+                    res.textContent = "Пора за работу!";
+                    await this.timer.setMinutes(TOMATO_TIME);    
                 }
             }
             else if((i % 2) && (i % 7))
@@ -95,6 +95,8 @@ class Process
                 USER_NUMBER_OF_SHORT_BREAKS--;
                 if(USER_NUMBER_OF_SHORT_BREAKS >= 0)
                 {
+                    let res = document.getElementById( 'message' ) as HTMLOutputElement;
+                    res.textContent = "Время отдохнуть!";
                     await this.timer.setMinutes(SHORT_BREAK);
                 }
             }
@@ -103,10 +105,14 @@ class Process
                 USER_NUMBER_OF_LONG_BREAKS--;
                 if(USER_NUMBER_OF_LONG_BREAKS >= 0)
                 {
+                    let res = document.getElementById( 'message' ) as HTMLOutputElement;
+                    res.textContent = "Время расслабиться!";
                     await this.timer.setMinutes(LONG_BREAK);
                 }
             }
         }
+        let res = document.getElementById( 'message' ) as HTMLOutputElement;
+        res.textContent = "Время вышло!";
     }
 }
 

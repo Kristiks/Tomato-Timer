@@ -324,22 +324,19 @@ class Timer {
             let myAudio = new Audio;
             myAudio.src = "../sounds/sound.mp3";
             myAudio.play();
-            this.notifyMe;
-        }
-    }
-    notifyMe() {
-        if (!("Notification" in window)) {
-            alert("This browser does not support desktop notification");
-        }
-        Notification.requestPermission(function (permission) {
-            if (permission === "granted") {
-                new Notification("Tmato-Timer", {
-                    tag: "Messege",
-                    body: "Время вышло!",
-                    icon: "img/logo.png"
-                });
+            if (!("Notification" in window)) {
+                alert("This browser does not support desktop notification");
             }
-        });
+            Notification.requestPermission(function (permission) {
+                if (permission === "granted") {
+                    new Notification("Tmato-Timer", {
+                        tag: "Messege",
+                        body: "Изменение сотояния!",
+                        icon: "img/logo.png"
+                    });
+                }
+            });
+        }
     }
 }
 
@@ -352,7 +349,7 @@ class Timer {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Process; });
 const TOMATO_TIME = 1;
-const SHORT_BREAK = 5;
+const SHORT_BREAK = 1;
 const LONG_BREAK = 20;
 let USER_NUMBER_OF_TOMATOES;
 let USER_NUMBER_OF_SHORT_BREAKS;
@@ -376,14 +373,14 @@ class Process {
     }
     async sequence() {
         let totalCount = USER_NUMBER_OF_TOMATOES + USER_NUMBER_OF_SHORT_BREAKS + USER_NUMBER_OF_LONG_BREAKS;
-        console.log(totalCount);
         let i;
         for (i = 0; i < totalCount; i++) {
-            console.log(i);
             if (i % 2 == 0) {
                 console.log('Tomato!');
                 USER_NUMBER_OF_TOMATOES--;
                 if (USER_NUMBER_OF_TOMATOES >= 0) {
+                    let res = document.getElementById('message');
+                    res.textContent = "Пора за работу!";
                     await this.timer.setMinutes(TOMATO_TIME);
                 }
             }
@@ -391,6 +388,8 @@ class Process {
                 console.log('Short break!');
                 USER_NUMBER_OF_SHORT_BREAKS--;
                 if (USER_NUMBER_OF_SHORT_BREAKS >= 0) {
+                    let res = document.getElementById('message');
+                    res.textContent = "Время отдохнуть!";
                     await this.timer.setMinutes(SHORT_BREAK);
                 }
             }
@@ -398,10 +397,14 @@ class Process {
                 console.log('Long break!');
                 USER_NUMBER_OF_LONG_BREAKS--;
                 if (USER_NUMBER_OF_LONG_BREAKS >= 0) {
+                    let res = document.getElementById('message');
+                    res.textContent = "Время расслабиться!";
                     await this.timer.setMinutes(LONG_BREAK);
                 }
             }
         }
+        let res = document.getElementById('message');
+        res.textContent = "Время вышло!";
     }
 }
 

@@ -117,8 +117,8 @@ button:focus {
 
 #timer
 {   
-    margin-left: 340px;
-    font-size: 50px;
+    margin-left: 310px;
+    font-size: 80px;
 }
 
 #Page1{
@@ -131,4 +131,10 @@ button:focus {
 
 #Page3{
     display: none;
+}
+
+#message
+{
+    font-size: 30px;
+    margin-left: 295px;
 }

@@ -42,29 +42,22 @@ class Timer
             let myAudio = new Audio; // создание экземпляра класса Audio
             myAudio.src = "../sounds/sound.mp3"; // назначение звукового файла
             myAudio.play(); // воспроизвести звук
-            this.notifyMe;
+            // всплывающее уведомление
+            if (!("Notification" in window)) {
+                alert("This browser does not support desktop notification");
+              }
+              Notification.requestPermission(function (permission) {
+                 // Если пользователь разрешил, то создаем уведомление
+                  if (permission === "granted") {
+                      new Notification("Tmato-Timer", {
+                      tag : "Messege",
+                      body : "Изменение сотояния!",
+                      icon : "img/logo.png"
+                  });
+                  }
+              });
         }
     }
-
-    notifyMe() {
-        // Проверка поддерживаемости браузером уведомлений
-        if (!("Notification" in window)) {
-          alert("This browser does not support desktop notification");
-        }
-        Notification.requestPermission(function (permission) {
-           // Если пользователь разрешил, то создаем уведомление 
-            if (permission === "granted") {
-              new Notification("Tmato-Timer", {
-                tag : "Messege",
-                body : "Время вышло!",
-                icon : "img/logo.png"
-            });
-            }
-        });
-        // В конечном счете если пользователь отказался от получения 
-        // уведомлений, то стоит уважать его выбор и не беспокоить его 
-        // по этому поводу .
-      }
 }
 
 
