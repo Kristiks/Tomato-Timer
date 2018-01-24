@@ -4,7 +4,9 @@
   "description": "A convenient timer for time management",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:scripts": "webpack",
+    "postinstall": "npm run build:scripts"
   },
   "repository": {
     "type": "git",
