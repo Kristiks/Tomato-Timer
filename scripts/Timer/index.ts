@@ -4,7 +4,6 @@
 ;
 
 import initFormButton from './InitFormButton';
-//import initButton from './InitEveryButton';
 import Display from './Display';
 import Converter from './Converter';
 import Timer from './Timer';
@@ -37,34 +36,34 @@ function SaveTime (): void
 
 function initButtonNext (form: HTMLFormElement, action: (event: Event) => void ): void
 {
-	const onAct = (event: Event): void =>
+	const onNext = (event: Event): void =>
 	{
 		action(event);
         event.preventDefault();
 	};
 	if(form){
-        form.addEventListener( 'submit', onAct );
+        form.addEventListener( 'submit', onNext );
     }
 }
 
 function setConverter(time:number){
     const display = new Display();
     const converter = new Converter(display, time);
-    initButtonBack ();
+    initButtonMain ();
     initButtonStart (converter, time);
 }
 
-function initButtonBack (): void
+function initButtonMain (): void
 {
     const button = document.getElementById('main') as HTMLButtonElement;
-    const onBack = ( event: Event ): void => 
+    const onMain = ( event: Event ): void => 
 	{	
         if (event == undefined) {
             return;
         }
         location.reload();
     };
-	initFormButton (button, onBack);
+	initFormButton (button, onMain);
 }
 
 function initButtonStart (converter:Converter, time:number): void
@@ -89,6 +88,34 @@ function setTimer(converter:Converter, time:number){
     const outputElement = document.getElementById( 'timer' ) as HTMLOutputElement;    
     const timer = new Timer( outputElement );
     new Process( timer, res );
+    initButtonExit();
+    initButtonBack();
+}
+
+function initButtonExit (): void
+{
+    const button = document.getElementById('exit') as HTMLButtonElement;
+    const onExit = ( event: Event ): void => 
+	{	
+        if (event == undefined) {
+            return;
+        }
+        location.reload();
+    };
+	initFormButton (button, onExit);
+}
+
+function initButtonBack (): void
+{
+    const button = document.getElementById('back') as HTMLButtonElement;
+    const onBack = ( event: Event ): void => 
+	{	
+        if (event == undefined) {
+            return;
+        }
+        location.reload();
+    };
+	initFormButton (button, onBack);
 }
 
 /**

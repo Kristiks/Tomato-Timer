@@ -3,13 +3,13 @@ import Timer from './Timer.js';
 /**
 * Количество минут в одном помидоре.
 */
-const TOMATO_TIME = 1;
+const TOMATO_TIME = 25;
 
 /**
 * Количество минут в маленьком перерыве.
 */
 
-const SHORT_BREAK = 1;
+const SHORT_BREAK = 5;
 
 /**
 * Количество минут в длинном перерыве.

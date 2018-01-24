@@ -112,29 +112,29 @@ function SaveTime() {
     initButtonNext(form, onSave);
 }
 function initButtonNext(form, action) {
-    const onAct = (event) => {
+    const onNext = (event) => {
         action(event);
         event.preventDefault();
     };
     if (form) {
-        form.addEventListener('submit', onAct);
+        form.addEventListener('submit', onNext);
     }
 }
 function setConverter(time) {
     const display = new __WEBPACK_IMPORTED_MODULE_1__Display__["a" /* default */]();
     const converter = new __WEBPACK_IMPORTED_MODULE_2__Converter__["a" /* default */](display, time);
-    initButtonBack();
+    initButtonMain();
     initButtonStart(converter, time);
 }
-function initButtonBack() {
+function initButtonMain() {
     const button = document.getElementById('main');
-    const onBack = (event) => {
+    const onMain = (event) => {
         if (event == undefined) {
             return;
         }
         location.reload();
     };
-    Object(__WEBPACK_IMPORTED_MODULE_0__InitFormButton__["a" /* default */])(button, onBack);
+    Object(__WEBPACK_IMPORTED_MODULE_0__InitFormButton__["a" /* default */])(button, onMain);
 }
 function initButtonStart(converter, time) {
     const button = document.getElementById('start');
@@ -155,6 +155,28 @@ function setTimer(converter, time) {
     const outputElement = document.getElementById('timer');
     const timer = new __WEBPACK_IMPORTED_MODULE_3__Timer__["a" /* default */](outputElement);
     new __WEBPACK_IMPORTED_MODULE_4__Process__["a" /* default */](timer, res);
+    initButtonExit();
+    initButtonBack();
+}
+function initButtonExit() {
+    const button = document.getElementById('exit');
+    const onExit = (event) => {
+        if (event == undefined) {
+            return;
+        }
+        location.reload();
+    };
+    Object(__WEBPACK_IMPORTED_MODULE_0__InitFormButton__["a" /* default */])(button, onExit);
+}
+function initButtonBack() {
+    const button = document.getElementById('back');
+    const onBack = (event) => {
+        if (event == undefined) {
+            return;
+        }
+        location.reload();
+    };
+    Object(__WEBPACK_IMPORTED_MODULE_0__InitFormButton__["a" /* default */])(button, onBack);
 }
 
 
@@ -348,8 +370,8 @@ class Timer {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Process; });
-const TOMATO_TIME = 1;
-const SHORT_BREAK = 1;
+const TOMATO_TIME = 25;
+const SHORT_BREAK = 5;
 const LONG_BREAK = 20;
 let USER_NUMBER_OF_TOMATOES;
 let USER_NUMBER_OF_SHORT_BREAKS;
