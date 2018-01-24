@@ -12,11 +12,7 @@ html
     flex-direction: column;
     height: 100vh;
     align-items: center;
-<<<<<<< HEAD
-}
-=======
     }
->>>>>>> 60040d9af7bedf0d87db48323b60ceb6e777dbd7
 
 .my-flex-block {
     width: 800px;
@@ -46,10 +42,7 @@ html
 
 .my-flex-block > form > input
 {
-<<<<<<< HEAD
     width: 100px;
-=======
->>>>>>> 60040d9af7bedf0d87db48323b60ceb6e777dbd7
     background: #44b436;
     border: none;
     border-bottom: none;
@@ -58,7 +51,6 @@ html
     size: 30px;
 }
 
-<<<<<<< HEAD
 .my-flex-block > form > input + span {
     padding-right: 30px;
 }
@@ -75,8 +67,6 @@ html
     padding-left: 5px;
 }
 
-=======
->>>>>>> 60040d9af7bedf0d87db48323b60ceb6e777dbd7
 .my-flex-block > form > button
 {
     margin: 0;
@@ -86,12 +76,8 @@ html
     margin-top: -60px;
 }
 
-<<<<<<< HEAD
 button[type="submit"] 
 {
-=======
-button[type="submit"] {
->>>>>>> 60040d9af7bedf0d87db48323b60ceb6e777dbd7
     margin-top: 30px;
 	background-color: #99f98c;
 	cursor: pointer;
@@ -99,7 +85,6 @@ button[type="submit"] {
 	border-bottom: none;
 }
 
-<<<<<<< HEAD
 button, 
 button:active, 
 button:focus {
@@ -127,5 +112,3 @@ button:focus {
 {
     font-size: 50px;
 }
-=======
->>>>>>> 60040d9af7bedf0d87db48323b60ceb6e777dbd7
